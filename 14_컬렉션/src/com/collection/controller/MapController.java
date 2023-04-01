@@ -251,12 +251,14 @@ public class MapController {
 			}
 		}
 
+		System.out.println("포이치문으로 출력===");
 		for(Object o1 : fruitEntry) {
 			Map.Entry all = (Map.Entry)o1;
 			System.out.println(all.getKey()+" "+all.getValue());
 		}
 		
 		
+
 		
 		System.out.println("==배를 찾아 삭제하기==");
 		Set fkeys = fruit.keySet();

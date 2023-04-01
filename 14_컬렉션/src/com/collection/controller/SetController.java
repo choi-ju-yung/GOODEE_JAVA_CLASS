@@ -36,7 +36,7 @@ public class SetController {
 		
 		System.out.println("===Iterator로 출력하기===");
 		while(it.hasNext()) { // 다음으로 갈수있는것이 있는지 물어봄
-			// 기본적으로 set에서 add함수의  반환형은 object기 때문에 형변환 해줘야함
+			// 기본적으로 iterator의 반환형은 object기 때문에 형변환 해줘야함
 			String value = (String)it.next(); 
 			System.out.println(value); 
 		}
@@ -134,7 +134,10 @@ public class SetController {
 		students.add(new Student("유병승",1,3,'남'));
 		
 		students.forEach((s)->{
-			System.out.println(s);
+			System.out.println(((Student)s).getName()+ " "+
+					((Student)s).getGrade()+ " "+
+					((Student)s).getClassNumber()+ " "+
+					((Student)s).getGender());
 		});
 		
 		
@@ -148,7 +151,7 @@ public class SetController {
 		
 		
 		List testData = List.of(1,2,3,4,5,5,6,6,7,7,8,8,10,10);
-	
+		System.out.println("중복값 제거해보기 위해 hashset을 먼저 변환후 다시 리스트로");
 		HashSet hs = new HashSet(testData);  // 리스트 -> HashSet으로 바뀜
 		ArrayList al = new ArrayList(hs);  // HashSet -> 리스트로 바뀜
 		for(Object o : al) {

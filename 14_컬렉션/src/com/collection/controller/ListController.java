@@ -1,21 +1,9 @@
 package com.collection.controller;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 
-import com.collection.common.FoodDecending;
-import com.collection.common.FoodNameAscending;
-import com.collection.common.FoodPriceAes;
-import com.collection.common.FoodPriceDecending;
-import com.collection.common.FoodTypeAscending;
-import com.collection.model.vo.Animal;
+import com.collection.common.aa;
 import com.collection.model.vo.Food;
 
 public class ListController {
@@ -77,7 +65,28 @@ public class ListController {
 //
 //		Food f = (Food) foods.get(1); // get 리턴타입은 Object이기 때문에
 //										// Food타입으로 형변환 해야한다.
-//
+
+		ArrayList al = new ArrayList();
+		al.add(new Food("돈까스", 10000, "일식", new Date()));
+		al.add(new Food("초밥", 2000, "일식", new Date()));
+		al.add(new Food("컵라면", 1400, "한식", new Date()));
+		al.add(new Food("샐러드", 12000, "건강식", new Date()));
+		
+		for(int i=0; i<al.size(); i++) {
+			Food f = (Food)al.get(i);
+			System.out.println(f.getName());
+		}
+		
+		for(Object o : al) {
+			System.out.println(((Food)o).getName());
+		}
+		
+		al.sort(new aa());
+		
+		al.forEach((o)->System.out.println(((Food)o).getPrice()));
+		
+		
+		
 //		System.out.println(f.getName() + " " + f.getPrice());
 //
 //		// 전체 음식의 타입, 이름, 가격을 출력
@@ -417,13 +426,13 @@ public class ListController {
 		// LinkedList 클래스 이용하기
 		// List인터페이스를 구현한 클래스
 		// 사용법은 ArrayList 클래스와 유사함
-		LinkedList linkList = new LinkedList();
-		// LinkedList에 값을 대입, 출력, 순회 방법은 ArrayList와 동일함
-		linkList.add("최주영");
-		linkList.add("이동제");
-		linkList.add("최인호");
-		System.out.println(linkList.get(0));
-		linkList.forEach((e)->System.out.println(e));
+//		LinkedList linkList = new LinkedList();
+//		// LinkedList에 값을 대입, 출력, 순회 방법은 ArrayList와 동일함
+//		linkList.add("최주영");
+//		linkList.add("이동제");
+//		linkList.add("최인호");
+//		System.out.println(linkList.get(0));
+//		linkList.forEach((e)->System.out.println(e));
 		
 		
 		// ArrayList 는 배열형식이며 순차적으로 인덱스 구조를 가짐
@@ -432,8 +441,8 @@ public class ListController {
 		// 저장된 데이터를 조작(중간에 삽입, 수정, 삭제)이 많을 때는 LinkdeList 사용하는것이 좋다.
 		// 기본적으로 데이터를 저장, 출력할 때에는 ArrayList 사용
 		
-		System.out.println(linkList.getFirst()); 
-		System.out.println(linkList.getLast());
+//		System.out.println(linkList.getFirst()); 
+//		System.out.println(linkList.getLast());
 		
 		
 		
