@@ -194,6 +194,8 @@ public class SetController {
 		studentTree.add(new Student("최주영",2,1,'남'));
 		studentTree.add(new Student("김현영",2,2,'여'));
 		studentTree.add(new Student("최하리",3,1,'여'));
+		studentTree.add(new Student("나하리",3,1,'여'));
+		
 		
 		System.out.println("==studentTree 출력하기==");
 		for(Object o : studentTree) {

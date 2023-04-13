@@ -266,7 +266,7 @@ public class MapController {
 		System.out.println("===삭제 후 출력하기===");
 		for(Object o1 : fruitEntry) {
 			Map.Entry all = (Map.Entry)o1;
-			System.out.println(all.getKey()+" "+all.getValue());
+			System.out.println(all.getKey()+" "+((Member)all.getValue()).);
 		}
 		
 //		
