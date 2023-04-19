@@ -7,6 +7,7 @@ import com.jdbc.model.dto.MemberDTO;
 import com.jdbc.model.service.MemberService;
 import com.jdbc.view.MainView;
 
+// MemberControllerImpl 클래스는 인터페이스 MemberController 안에 있는 메소드를 모두 구현해야한다
 public class MemberControllerImpl implements MemberController{
 
 	//private MemberDao dao = new MemberDao();
@@ -17,6 +18,15 @@ public class MemberControllerImpl implements MemberController{
 		new MainView().mainMenu();
 	}
 	
+	
+	@Override
+	public void selectAllMember() {
+		// TODO Auto-generated method stub
+		List<MemberDTO> members = service.selectAllMember();
+		new MainView().printMembers(members);
+	}
+	
+	
 	// 알트 + 쉬프트 + s + v
 	@Override
 	public void selectMemberById() {
@@ -25,30 +35,31 @@ public class MemberControllerImpl implements MemberController{
 		new MainView().printMember(m);
 	}
 
-	@Override
-	public void selectAllMember() {
-		// TODO Auto-generated method stub
-		List<MemberDTO> members = service.selectAllMember();
-		new MainView().printMembers(members);
-	}
 
+	public void selectMemberByName() {
+		String name = new MainView().inputData("이름");
+		List<MemberDTO> members = service.selectMemberByName(name);
+		new MainView().printMembers(members); 
+	}
+	
+
+	
 	@Override
 	public void insertMember() {
-		// TODO Auto-generated method stub
-		
+		MemberDTO m = new MainView().addMember();
+		int result = service.insertMember(m);
+		new MainView().printMsg(result>0?"회원가입 성공" : "회원가입 실패");
 	}
 
 	@Override
 	public void updateMember() {
-		// TODO Auto-generated method stub
+		MemberDTO m = new MainView().updateData();
+		int result = service.updateMember(m);
+		new MainView().printMsg(result>0?"회원 수정 성공" : "회원 수정 실패");
 		
 	}
 
-	@Override
-	public void selectMemberByName() {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 	
 }
