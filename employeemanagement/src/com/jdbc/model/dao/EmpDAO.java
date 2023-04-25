@@ -96,7 +96,6 @@ public class EmpDAO {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1,depart);
-			System.out.println(sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				emps.add(getEmp(rs));
@@ -110,7 +109,54 @@ public class EmpDAO {
 		return emps;
 	}
 	
+	
+	public List<EmpDTO> selectEmpByJob(Connection conn, String job){
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 
+
+		String sql = this.sql.getProperty("selectEmpByJob");
+		List<EmpDTO> emps = new ArrayList();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,job);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				emps.add(getEmp(rs));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return emps;
+	}
+	
+	public List<EmpDTO> selectEmpByName(Connection conn, String name){
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		String sql = this.sql.getProperty("selectEmpByName");
+		List<EmpDTO> emps = new ArrayList();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,name);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				emps.add(getEmp(rs));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return emps;
+	}
+	
 	public EmpDTO getEmp(ResultSet rs) throws SQLException{
 		EmpDTO e = new EmpDTO();
 		

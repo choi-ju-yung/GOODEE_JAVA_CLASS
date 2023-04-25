@@ -101,7 +101,7 @@ public class MainView {
 	
 	
 	public String inputData(String title) {
-		System.out.println("==== 검색할 "+title+"입력 ====");
+		System.out.println("==== 검색할 "+title+" 입력 ====");
 		System.out.print("입력 : ");
 		return sc.nextLine();
 	}
@@ -129,8 +129,8 @@ public class MainView {
 
 		switch(cho) {
 			case 1: controller.selectEmpByDepart(); break;
-			case 2: //controller.selectEmpByJob(); break;
-			case 3: //controller.selectEmpByName(); break;
+			case 2: controller.selectEmpByJob(); break;
+			case 3: controller.selectEmpByName(); break;
 			case 4: //controller.selectEmpBySalary(); break; break;
 			case 0: System.out.println("메인화면으로 이동합니다."); return;
 

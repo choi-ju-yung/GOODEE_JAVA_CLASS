@@ -37,11 +37,24 @@ public class EmpService {
 	
 	public List<EmpDTO> selectEmpByDepart(String depart){
 		Connection conn = getConnection();
-		List<EmpDTO> boards = dao.selectEmpByDepart(conn, depart);
+		List<EmpDTO> emps = dao.selectEmpByDepart(conn, depart);
 		close(conn);
-		return boards;
+		return emps;
 	}
 	
+	public List<EmpDTO> selectEmpByJob(String job){
+		Connection conn = getConnection();
+		List<EmpDTO> emps = dao.selectEmpByJob(conn, job);
+		close(conn);
+		return emps;
+	}
+	
+	public List<EmpDTO> selectEmpByName(String name){
+		Connection conn = getConnection();
+		List<EmpDTO> emps = dao.selectEmpByName(conn, name);
+		close(conn);
+		return emps;
+	}
 	
 	
 }

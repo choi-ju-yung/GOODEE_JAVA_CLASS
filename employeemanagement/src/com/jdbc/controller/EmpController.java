@@ -41,7 +41,18 @@ public class EmpController {
 		new MainView().printEmpAll(emps);
 	}
 	
+	// 사원조회에서 직책 메뉴 기능
+	public void selectEmpByJob() {
+		String job = new MainView().inputData("직책");
+		List<EmpDTO> emps = service.selectEmpByJob(job);
+		new MainView().printEmpAll(emps);
+	}
 	
+	public void selectEmpByName() {
+		String name = new MainView().inputData("이름");
+		List<EmpDTO> emps = service.selectEmpByName(name);
+		new MainView().printEmpAll(emps);
+	}
 	
 	
 	
